@@ -108,7 +108,7 @@ def print_req_4(control):
     print(controller.req_4(control))
 
 
-def print_req_5(control):
+def print_req_5(control): #
     """
         Función que imprime la solución del Requerimiento 5 en consola
     """
