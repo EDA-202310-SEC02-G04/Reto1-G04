@@ -24,6 +24,7 @@ import config as cf
 import model
 import time
 import csv
+import os
 
 
 """
@@ -48,6 +49,10 @@ def load_data(control, filename):
     """
     Carga los datos del reto
     """
+    catalog = control["model"]
+    booksfile = os.path.join(cf.data_dir, filename)
+    catalog = model.addBooks(catalog, booksfile)
+    return model.bookSize(catalog)
     # TODO: Realizar la carga de datos
     pass
 
