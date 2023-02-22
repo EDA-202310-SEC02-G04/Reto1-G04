@@ -35,7 +35,7 @@ from DISClib.Algorithms.Sorting import selectionsort as se
 from DISClib.Algorithms.Sorting import mergesort as merg
 from DISClib.Algorithms.Sorting import quicksort as quk
 assert cf
-
+import view
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá
 dos listas, una para los videos, otra para las categorias de los mismos.
@@ -43,8 +43,17 @@ dos listas, una para los videos, otra para las categorias de los mismos.
 
 # Construccion de modelos
 
+def comparar_impuestos(impuesto_1, impuesto_2):
+    if compare(impuesto_1[0], impuesto_2[0])==1:
+        return True
+    elif compare(impuesto_1[0], impuesto_2[0])==-1:
+        return False
+    else:
+        comparar_impuestos(impuesto_1[0], impuesto_2[0])
+        if comparar_impuestos(impuesto_1[0], impuesto_2[0])==0:
+            return False
 
-def new_data_structs():
+def new_data_structs_arraylist():
     """
     Inicializa las estructuras de datos del modelo. Las crea de
     manera vacía para posteriormente almacenar la información.
@@ -58,6 +67,19 @@ def new_data_structs():
 
     return data_structs
 
+def new_data_structs_linkedlist():
+    """
+    Inicializa las estructuras de datos del modelo. Las crea de
+    manera vacía para posteriormente almacenar la información.
+    """
+    data_structs = {
+        "data": None,
+    }
+
+    data_structs["data"] = lt.newList(datastructure="SINGLE_LINKED",
+                                     cmpfunction=compare)
+
+    return data_structs
 
 # Funciones para agregar informacion al modelo
 
@@ -109,6 +131,7 @@ def req_1(data_structs):
     Función que soluciona el requerimiento 1
     """
     # TODO: Realizar el requerimiento 1
+    
     pass
 
 
@@ -165,7 +188,13 @@ def req_8(data_structs):
     Función que soluciona el requerimiento 8
     """
     # TODO: Realizar el requerimiento 8
-    pass
+    if view.algoritmo_de_ordenacion=="Selection":
+        lista=se(data_structs)
+    elif view.algoritmo_de_ordenacion=="Insertion":
+        lista=ins(data_structs)
+    elif view.algoritmo_de_ordenacion=="Shell":
+        lista=sa(data_structs)
+    return (lista)
 
 
 # Funciones utilizadas para comparar elementos dentro de una lista
@@ -174,9 +203,9 @@ def compare(data_1, data_2):
     """
     Función encargada de comparar dos datos
     """
-    if data_1["id"] > data_2["id"]:
+    if data_1["id"] < data_2["id"]:
         return 1
-    elif data_1["id"] < data_2["id"]:
+    elif data_1["id"] > data_2["id"]:
         return -1
     else:
         return 0

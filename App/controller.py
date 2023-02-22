@@ -25,7 +25,7 @@ import model
 import time
 import csv
 import os
-
+import view
 
 """
 El controlador se encarga de mediar entre la vista y el modelo.
@@ -148,7 +148,7 @@ def req_8(control):
     Retorna el resultado del requerimiento 8
     """
     # TODO: Modificar el requerimiento 8
-    req_8 = model.req_8(control["model"])
+    req_8 = model.req_8(view.algoritmo_de_ordenacion)
     return req_8
 
 
