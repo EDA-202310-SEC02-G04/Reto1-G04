@@ -57,6 +57,7 @@ def print_menu():
     print("8- Ejecutar Requerimiento 7")
     print("9- Ejecutar Requerimiento 8")
     print("10- Obtener dato dado un ID")
+    print("11- caracteristicas de lista")
     print("0- Salir")
 
 
@@ -179,11 +180,18 @@ if __name__ == "__main__":
                 print_req_7(control)
 
             elif int(inputs) == 9:
-                print_req_8(control)
+                algoritmo_de_ordenacion=input("Escoja el algoritmo de ordenacion: Insertion, Selection, Shell ")
+                print_req_8(algoritmo_de_ordenacion)
+                
 
             elif int(inputs) == 10:
                 id = input("Ingrese un id: ")
                 print_data(control, id)
+            
+            elif int(inputs) == 11:
+                lista= input("SINGLE_LNKED O ARRAY_LIST")
+                tamaño=input("ingrese el tamanio de la lista")
+                
 
             elif int(inputs) == 0:
                 working = False
