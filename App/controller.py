@@ -93,7 +93,7 @@ def req_2(control):
     """
     Retorna el resultado del requerimiento 2
     """
-    # TODO: Modificar el requerimiento 2
+    # TODO: Modificar el requerimiento 2.
     req_2 = model.req_2(control["model"])
     return req_2
 
