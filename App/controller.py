@@ -33,14 +33,14 @@ El controlador se encarga de mediar entre la vista y el modelo.
 
 
 def new_controller():
-    """
-    Crea una instancia del modelo
-    """
+
+    """Crea una instancia del modelo"""
+
     control = {
         "model": None
     }
     control["model"] = model.new_data_structs()
-    return control
+    return control 
 
 
 # Funciones para la carga de datos
@@ -59,14 +59,21 @@ def load_data(control, filename):
 
 # Funciones de ordenamiento
 
-def sort(control):
+def sort(control, tipo):
     """
     Ordena los datos del modelo
     """
-    start_time = get_time()
+    """ start_time = get_time()
     model.sort(control["model"])
     end_time = get_time()
     delta_t = delta_time(start_time, end_time)
+    return delta_t
+ """
+    start_time = get_time()
+    model.sort(control, tipo)
+    end_time = get_time()
+    delta_t = delta_time(start_time, end_time)
+    print(delta_t)
     return delta_t
 
 

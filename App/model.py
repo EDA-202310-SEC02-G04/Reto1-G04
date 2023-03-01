@@ -226,8 +226,21 @@ def sort_criteria(data_1, data_2):
     return data_1["id"] > data_2["id"]
 
 
-def sort(data_structs):
+def sort(data_structs, tipo):
     """
     Función encargada de ordenar la lista con los datos
     """
-    sa.sort(data_structs["data"], sort_criteria)
+    #sa.sort(data_structs["data"], sort_criteria)
+    if tipo == 1:
+        lista = sa.sort(data_structs["data"], sort_criteria)
+    elif tipo == 2:
+        lista = ins.sort(data_structs["data"], sort_criteria)
+    elif tipo == 3:
+        lista = se.sort(data_structs["data"], sort_criteria)
+    elif tipo == 4:
+        lista =merg.sort(data_structs["data"], sort_criteria)
+    elif tipo == 5:
+        lista = quk.sort(data_structs["data"], sort_criteria)
+    else:
+        lista = print("No existe este ordenamiento")
+    return lista

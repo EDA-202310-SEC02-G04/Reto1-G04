@@ -140,6 +140,9 @@ def print_req_8(control):
     # TODO: Imprimir el resultado del requerimiento 8
     print(controller.req_8(control))
 
+def print_sort(control, tipo):
+    print(controller.sort(control, tipo))
+
 
 # Se crea el controlador asociado a la vista
 control = new_controller()
@@ -183,6 +186,15 @@ if __name__ == "__main__":
                 algoritmo_de_ordenacion=input("Escoja el algoritmo de ordenacion: Insertion, Selection, Shell ")
                 print_req_8(algoritmo_de_ordenacion)
                 
+
+            elif int(inputs) == 12:
+                print("1. shell.")
+                print("2. insertions.")
+                print("3. selection.")
+                print("4. merge.")
+                print("5. quick.")
+                tipo = int(input("eliga el tipo de ordemanmiento:"))
+                print_sort(control, tipo)
 
             elif int(inputs) == 10:
                 id = input("Ingrese un id: ")
