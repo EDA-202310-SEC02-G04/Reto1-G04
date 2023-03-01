@@ -264,7 +264,7 @@ def sort(data_structs, tipo):
     """
     #sa.sort(data_structs["data"], sort_criteria)
     if tipo == 1:
-        lista = sa.sort(data_structs[str(data)], sort_criteria)
+        lista = sa.sort(data_structs["data"], sort_criteria)
     elif tipo == 2:
         lista = ins.sort(data_structs["data"], sort_criteria)
     elif tipo == 3:
