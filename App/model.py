@@ -35,7 +35,7 @@ from DISClib.Algorithms.Sorting import selectionsort as se
 from DISClib.Algorithms.Sorting import mergesort as merg
 from DISClib.Algorithms.Sorting import quicksort as quk
 assert cf
-import view
+
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá
 dos listas, una para los videos, otra para las categorias de los mismos.
@@ -188,13 +188,22 @@ def req_8(data_structs):
     Función que soluciona el requerimiento 8
     """
     # TODO: Realizar el requerimiento 8
-    if view.algoritmo_de_ordenacion=="Selection":
-        lista=se(data_structs)
-    elif view.algoritmo_de_ordenacion=="Insertion":
-        lista=ins(data_structs)
-    elif view.algoritmo_de_ordenacion=="Shell":
-        lista=sa(data_structs)
-    return (lista)
+    
+def Insertion(list):
+    lista=ins(list)
+    return(lista)
+def Selection(list):
+    lista=se(list)
+    return(lista)
+def Shell(list):
+    lista=sa(list)
+    return(lista)
+def Merge(list):
+    lista=merg(list)
+    return(lista)
+def Quick(list):
+    lista=quk(list)
+    return(lista)
 
 
 # Funciones utilizadas para comparar elementos dentro de una lista
