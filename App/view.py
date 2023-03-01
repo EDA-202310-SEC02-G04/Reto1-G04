@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
             elif int(inputs) == 9:
                 algoritmo_de_ordenacion=input("Escoja el algoritmo de ordenacion: Insertion, Selection, Shell ")
-                print_req_8(algoritmo_de_ordenacion)
+                print(print_req_8(algoritmo_de_ordenacion))
                 
 
             elif int(inputs) == 12:
