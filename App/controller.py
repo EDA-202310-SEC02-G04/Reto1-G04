@@ -36,11 +36,8 @@ def new_controller():
 
     """Crea una instancia del modelo"""
 
-    control = {
-        "model": None
-    }
-    control["model"] = model.new_data_structs_arraylist()
-    return control 
+    control = model.new_data_structs()
+    return control
 
 
 # Funciones para la carga de datos
@@ -49,10 +46,10 @@ def load_data(control, filename):
     """
     Carga los datos del reto
     """
-    catalog = control["model"]
-    booksfile = os.path.join(cf.data_dir, filename)
-    catalog = model.addBooks(catalog, booksfile)
-    return model.bookSize(catalog)
+    carga = cf.data_dir + "DIAN/Salida_agregados_renta_juridicos_AG-10pct.csv"
+    archivo = csv.DictReader(open(carga, encoding="utf-8"))
+    for empresa in archivo:  
+        model.add_data(control, empresa)
     # TODO: Realizar la carga de datos
     pass
 
@@ -85,6 +82,10 @@ def get_data(control, id):
     """
     data = model.get_data(control["model"], id)
     return data
+
+def tipo_list(data_structs, tipo):
+    lista = model.cambio(data_structs, tipo)
+    return lista
 
 
 def req_1(control):

@@ -76,6 +76,12 @@ def print_data(control, id):
     data = controller.get_data(control, id)
     print("El dato con el ID", id, "es:", data)
 
+def print_tipo_de_representacion(control, tipo):
+    """
+        Función que imprime el tipo de representacion
+    """
+    lista = controller.tipo_list(control, tipo)
+    print(lista)
 
 def print_req_1(control):
     """
@@ -187,6 +193,14 @@ if __name__ == "__main__":
                 print(print_req_8(algoritmo_de_ordenacion))
                 
 
+            elif int(inputs) == 10:
+                id = input("Ingrese un id: ")
+                print_data(control, id)
+            
+            elif int(inputs) == 11:
+                lista= input("SINGLE_LNKED O ARRAY_LIST")
+                tamaño=input("ingrese el tamanio de la lista")
+
             elif int(inputs) == 12:
                 print("1. shell.")
                 print("2. insertions.")
@@ -195,14 +209,6 @@ if __name__ == "__main__":
                 print("5. quick.")
                 tipo = int(input("eliga el tipo de ordemanmiento:"))
                 print_sort(control, tipo)
-
-            elif int(inputs) == 10:
-                id = input("Ingrese un id: ")
-                print_data(control, id)
-            
-            elif int(inputs) == 11:
-                lista= input("SINGLE_LNKED O ARRAY_LIST")
-                tamaño=input("ingrese el tamanio de la lista")
                 
 
             elif int(inputs) == 0:

@@ -82,6 +82,29 @@ def new_data_structs_linkedlist():
     return data_structs
 
 # Funciones para agregar informacion al modelo
+def new_data_structs():
+    """
+    Inicializa las estructuras de datos del modelo. Las crea de
+    manera vacía para posteriormente almacenar la información.
+    """
+    data_structs = {
+        "data": None
+    }
+    
+    data_structs["data"] = lt.newList(datastructure="SINGLE_LINKED", cmpfunction=compare)
+
+    return data_structs
+
+def cambio(data_structs, tipo):
+    
+    if tipo == 1:
+        data_structs["data"] = lt.newList(datastructure="ARRAY_LIST", cmpfunction=compare)
+    
+    elif tipo == 2:
+        data_structs = data_structs
+    
+    return data_structs
+    
 
 def add_data(data_structs, data):
     """
@@ -212,9 +235,9 @@ def compare(data_1, data_2):
     """
     Función encargada de comparar dos datos
     """
-    if data_1["id"] < data_2["id"]:
+    if data_1["Año"] > data_2["Año"]:
         return 1
-    elif data_1["id"] > data_2["id"]:
+    elif data_1["Año"] < data_2["Año"]:
         return -1
     else:
         return 0
@@ -232,7 +255,7 @@ def sort_criteria(data_1, data_2):
     Returns:
         _type_: _description_
     """
-    return data_1["id"] > data_2["id"]
+    return data_1["Año"] > data_2["Año"]
 
 
 def sort(data_structs, tipo):
@@ -253,3 +276,48 @@ def sort(data_structs, tipo):
     else:
         lista = print("No existe este ordenamiento")
     return lista
+
+def cmp_impuestos_by_anio_CAE(empresas, filename):
+   """
+   Devuelve verdadero (True) si el año de impuesto 1 es menor que el de impuesto 2,
+   en caso de que sean iguales tenga en cuenta el código de la actividad económica,
+   de lo contrario devuelva falso (False).
+   Args:
+        impuesto 1: información del primer registro de impuestos que incluye el "Año" y el
+        "Código actividad económica"
+        impuesto 2: información del segundo registro de impuestos que incluye el "Año" y el
+        "Código actividad económica"
+   """ 
+   
+def cmp_id(va1, va2):
+    id_key = "lista"
+    if (va1[id_key] == va2[id_key]):
+        return 0
+    elif (va1[id_key] > va2[id_key]):
+        return 1
+    elif (va1[id_key] < va2[id_key]):
+        return -1
+    else:
+        raise Exception
+
+def load_data(struct, folder_name, file_name):
+    if struct == 1:
+        list = lt.newList("ARRAY_LIST",cmpfunction=cmp_id)
+
+    if struct == 2:
+        list = lt.newList("SINGLE_LINKED",cmpfunction=cmp_id)
+    
+    try:
+        list_fpath = cf.os.path.join(cf.data_dir,
+                                    folder_name,
+                                    file_name,)
+        print("Archivo ubicado en:", list_fpath)
+        list_file = open(list_fpath, "r", encoding="utf-8")
+        list_register = csv.DictReader(list_file, delimeter=",")
+        for list in list_register:
+            list_lt = add_data(list_lt, list)
+        list_file.close()
+        return list_lt
+    except Exception as e:
+        print(e)
+        raise Exception 
