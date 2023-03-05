@@ -34,6 +34,7 @@ The students edit this section to add their names, Uniandes emails, and specify 
 
 1. Student 1. 1 Wilder Jimenez.  ws.jimenez@uniandes.edu.co, Estudiante 1.
 2. Pablo Castrillon.  p.castrillon@uniandes.edu.co, Estudiante 2.
+3. Maria Paz Ramirez. mp.ramirezc1@uniandes.edu.co, Estudiante 3.
 
 
 [Back to top](#challenge-template)
