@@ -46,7 +46,7 @@ def load_data(control, filename):
     """
     Carga los datos del reto
     """
-    carga = cf.data_dir + "DIAN/Salida_agregados_renta_juridicos_AG-10pct.csv"
+    carga = cf.data_dir + "Salida_agregados_renta_juridicos_AG-10pct.csv"
     archivo = csv.DictReader(open(carga, encoding="utf-8"))
     for empresa in archivo:  
         model.add_data(control, empresa)

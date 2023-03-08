@@ -113,7 +113,8 @@ def add_data(data_structs, data):
     d = new_data(data["id"], data["info"])
     lt.addLast(data_structs["data"], d)
 
-    return data_structs
+    pass
+    """ return data_structs """
 
 
 # Funciones para creacion de datos

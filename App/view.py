@@ -65,7 +65,7 @@ def load_data(control):
     """
     Carga los datos
     """
-    data = controller.load_data(control, "./data/salida_agragados_renta_jutidicos_AG-large.csv")
+    data = controller.load_data(control, "salida_agragados_renta_jutidicos_AG-large.csv")
     return data
 
 
